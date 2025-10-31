@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All 29 FSJP Practical Answers</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 900px;
+            padding: 20px;
+        }
+        .problem {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            page-break-inside: avoid;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.8rem;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        h3 {
+            font-size: 1.3rem;
+            color: #555;
+            margin-top: 1.5rem;
+        }
+        h4 {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #666;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        pre {
+            background-color: #f7f7f7;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1rem;
+            overflow-x: auto;
+            font-size: 0.95rem;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+        }
+        p {
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>FSJP List for External Practical - All 29 Solutions</h1>
+
+    <div class="problem">
+        <h2>1. Triangle Validator and Classifier</h2>
+        <h3>Problem Statement:</h3>
+        <p>Write a program to accept the three sides of a triangle and display whether a valid triangle can be formed or not, if formed, whether it is an equilateral, isosceles or a scalene triangle and calculate its area.</p>
+        <h3>Code:</h3>
+<pre><code>
+import java.util.Scanner;
+import java.lang.Math;
+
+public class TriangleCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter 3 sides:");
+        double a = scanner.nextDouble();
+        double b = scanner.nextDouble();
+        double c = scanner.nextDouble();
+
+        if ((a + b > c) && (a + c > b) && (b + c > a)) {
+            System.out.println("Triangle is valid.");
+            if (a == b && b == c) {
+                System.out.println("It is an Equilateral triangle.");
+            } else if (a == b || b == c || a == c) {
+                System.out.println("It is an Isosceles triangle.");
+            } else {
+                System.out.println("It is a Scalene triangle.");
+            }
+            double s = (a + b + c) / 2;
+            double area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+            System.out.printf("Area is: %.2f\n", area);
+        } else {
+            System.out.println("Triangle is not valid.");
+        }
+        scanner.close();
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>2. Fibonacci Series</h2>
+        <h3>Problem Statement:</h3>
+        <p>Write a program using a for loop to print Fibonacci series of n terms where n is input by user (0 1 1 2 3 5 8 13 21....)</p>
+        <h3>Code:</h3>
+<pre><code>
+import java.util.Scanner;
+
+public class FibonacciSeries {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter number of terms: ");
+        int n = scanner.nextInt();
+
+        int t1 = 0, t2 = 1;
+        System.out.print("Fibonacci Series: ");
+
+        for (int i = 1; i &lt;= n; ++i) {
+            System.out.print(t1 + " ");
+            int sum = t1 + t2;
+            t1 = t2;
+            t2 = sum;
+        }
+        System.out.println();
+        scanner.close();
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>3. Reverse an Integer</h2>
+        <h3>Problem Statement:</h3>
+        <p>Write a program using a while loop that prompts the user to input an integer and then outputs the number with the digits reversed. (e.g., 12345 -> 54321)</p>
+        <h3>Code:</h3>
+<pre><code>
+import java.util.Scanner;
+
+public class ReverseNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int num = scanner.nextInt();
+        
+        int reversedNum = 0;
+
+        while (num != 0) {
+            int digit = num % 10;
+            reversedNum = reversedNum * 10 + digit;
+            num /= 10;
+        }
+
+        System.out.println("Reversed number: " + reversedNum);
+        scanner.close();
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>4. Rectangle Class</h2>
+        <h3>Problem Statement:</h3>
+        <p>Create a class 'Rectangle' with three methods: 'setDim' (takes length and breadth), 'calculateArea' (returns area), and 'calculatePerimeter' (returns perimeter). Display area and perimeter in main.</p>
+        <h3>Code:</h3>
+<pre><code>
+import java.util.Scanner;
+
+class Rectangle {
+    double length;
+    double breadth;
+
+    public void setDim(double len, double brd) {
+        this.length = len;
+        this.breadth = brd;
+    }
+
+    public double calculateArea() {
+        return length * breadth;
+    }
+
+    public double calculatePerimeter() {
+        return 2 * (length + breadth);
+    }
+}
+
+public class RectangleDemo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Rectangle rect = new Rectangle();
+
+        System.out.print("Enter length: ");
+        double length = scanner.nextDouble();
+        System.out.print("Enter breadth: ");
+        double breadth = scanner.nextDouble();
+
+        rect.setDim(length, breadth);
+        
+        System.out.println("Area: " + rect.calculateArea());
+        System.out.println("Perimeter: " + rect.calculatePerimeter());
+        scanner.close();
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>5. Employee Details (using BufferedReader)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Create a class 'Employee' with methods 'getInfo', 'CalculateGrossSalary', and 'display'. Gross Salary=Salary+DA+HRA, where DA=10% and HRA=7% of salary. Use `BufferedReader` for input.</p>
+        <h3>Code:</h3>
+<pre><code>
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
+class Employee {
+    int EmpId;
+    String EmpName;
+    double EmpSalary;
+    double GrossSalary;
+
+    public void getInfo(int id, String name, double salary) {
+        this.EmpId = id;
+        this.EmpName = name;
+        this.EmpSalary = salary;
+    }
+
+    public void CalculateGrossSalary() {
+        double DA = 0.10 * this.EmpSalary;
+        double HRA = 0.07 * this.EmpSalary;
+        this.GrossSalary = this.EmpSalary + DA + HRA;
+    }
+
+    public void display() {
+        System.out.println("\n--- Employee Details ---");
+        System.out.println("ID: " + EmpId);
+        System.out.println("Name: " + EmpName);
+        System.out.println("Base Salary: " + EmpSalary);
+        System.out.println("Gross Salary: " + GrossSalary);
+    }
+}
+
+public class EmployeeDemo {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        System.out.print("Enter Employee ID: ");
+        int id = Integer.parseInt(reader.readLine());
+        System.out.print("Enter Employee Name: ");
+        String name = reader.readLine();
+        System.out.print("Enter Employee Base Salary: ");
+        double salary = Double.parseDouble(reader.readLine());
+
+        Employee emp = new Employee();
+        emp.getInfo(id, name, salary);
+        emp.CalculateGrossSalary();
+        emp.display();
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>6. Area Calculation (Method Overloading)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Write a program to find Area of Circle, Rectangle and Triangle using method overloading.</p>
+        <h3>Code:</h3>
+<pre><code>
+public class AreaOverloading {
+
+    // Area of Circle
+    public double findArea(double radius) {
+        return Math.PI * radius * radius;
+    }
+
+    // Area of Rectangle
+    public double findArea(double length, double breadth) {
+        return length * breadth;
+    }
+
+    // Area of Triangle
+    public double findArea(float base, float height) {
+        return 0.5 * base * height;
+    }
+
+    public static void main(String[] args) {
+        AreaOverloading calculator = new AreaOverloading();
+        System.out.println("Area of Circle: " + calculator.findArea(7.0));
+        System.out.println("Area of Rectangle: " + calculator.findArea(10.0, 5.0));
+        System.out.println("Area of Triangle: " + calculator.findArea(8.0f, 12.0f));
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>7. Calculator (Method Overloading)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Create a class Calculator with overloaded methods `add(int, int)`, `add(double, double)`, and `add(int, int, int)`.</p>
+        <h3>Code:</h3>
+<pre><code>
+class Calculator {
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public double add(double a, double b) {
+        return a + b;
+    }
+
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+}
+
+public class CalculatorDemo {
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        System.out.println("Two ints: " + calc.add(10, 20));
+        System.out.println("Two doubles: " + calc.add(10.5, 20.2));
+        System.out.println("Three ints: " + calc.add(10, 20, 30));
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>8. Student Marks (Method Overloading)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Create a class Student with overloaded methods `setMarks(int, int)`, `setMarks(int, int, int)`, and `setMarks(double, double)`. Display average marks using each.</p>
+        <h3>Code:</h3>
+<pre><code>
+class StudentMarks {
+    public void setMarks(int marks1, int marks2) {
+        System.out.println("Average for two ints: " + (marks1 + marks2) / 2.0);
+    }
+
+    public void setMarks(int marks1, int marks2, int marks3) {
+        System.out.println("Average for three ints: " + (marks1 + marks2 + marks3) / 3.0);
+    }
+
+    public void setMarks(double marks1, double marks2) {
+        System.out.println("Average for two doubles: " + (marks1 + marks2) / 2.0);
+    }
+}
+
+public class StudentMarksDemo {
+    public static void main(String[] args) {
+        StudentMarks student = new StudentMarks();
+        student.setMarks(90, 80);
+        student.setMarks(95, 85, 75);
+        student.setMarks(88.5, 92.5);
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>9. Bank Account (Menu Driven)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Design a menu-driven program for a bank account (Owner, AccNo, Balance, Type). Include a constructor and methods for deposit, withdraw, and display.</p>
+        <h3>Code:</h3>
+<pre><code>
+import java.util.Scanner;
+
+class BankAccount {
+    String ownerName;
+    double balance;
+
+    public BankAccount(String name, double initialBalance) {
+        this.ownerName = name;
+        this.balance = initialBalance;
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            this.balance += amount;
+            System.out.println("Deposit successful. New balance: " + this.balance);
+        }
+    }
+
+    public void withdraw(double amount) {
+        if (amount > this.balance) {
+            System.out.println("Insufficient funds.");
+        } else {
+            this.balance -= amount;
+            System.out.println("Withdrawal successful. New balance: " + this.balance);
+        }
+    }
+
+    public void displayDetails() {
+        System.out.println("Owner: " + this.ownerName + ", Balance: " + this.balance);
+    }
+}
+
+public class BankMenu {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        BankAccount account = new BankAccount("John Doe", 1000.00);
+        int choice;
+
+        do {
+            System.out.println("\n--- Bank Menu ---");
+            System.out.println("1. Deposit");
+            System.out.println("2. Withdraw");
+            System.out.println("3. Display Details");
+            System.out.println("4. Exit");
+            System.out.print("Enter choice: ");
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter deposit amount: ");
+                    account.deposit(scanner.nextDouble());
+                    break;
+                case 2:
+                    System.out.print("Enter withdraw amount: ");
+                    account.withdraw(scanner.nextDouble());
+                    break;
+                case 3:
+                    account.displayDetails();
+                    break;
+                case 4:
+                    System.out.println("Exiting...");
+                    break;
+            }
+        } while (choice != 4);
+        scanner.close();
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>10. Student (Overloaded Constructors)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Create a class Student with overloaded constructors (default, roll, roll+name, roll+name+age). Display details.</p>
+        <h3>Code:</h3>
+<pre><code>
+class Student {
+    int rollNumber;
+    String name;
+    int age;
+
+    public Student() {
+        this.rollNumber = 0;
+        this.name = "Unknown";
+        this.age = 0;
+    }
+
+    public Student(int roll) {
+        this.rollNumber = roll;
+        this.name = "Unknown";
+        this.age = 0;
+    }
+
+    public Student(int roll, String name) {
+        this.rollNumber = roll;
+        this.name = name;
+        this.age = 0;
+    }
+
+    public Student(int roll, String name, int age) {
+        this.rollNumber = roll;
+        this.name = name;
+        this.age = age;
+    }
+
+    public void displayDetails() {
+        System.out.println("Roll: " + rollNumber + ", Name: " + name + ", Age: " + age);
+    }
+}
+
+public class StudentConstructorDemo {
+    public static void main(String[] args) {
+        Student s1 = new Student();
+        Student s2 = new Student(101);
+        Student s3 = new Student(102, "Alice");
+        Student s4 = new Student(103, "Bob", 21);
+
+        s1.displayDetails();
+        s2.displayDetails();
+        s3.displayDetails();
+        s4.displayDetails();
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>11. Rectangle (Overloaded Constructors)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Create a class Rectangle with overloaded constructors (default sets length=breadth=1, one param for square, two params for length+breadth). Write a method to display area.</p>
+        <h3>Code:</h3>
+<pre><code>
+class RectangleOverload {
+    double length;
+    double breadth;
+
+    public RectangleOverload() {
+        this.length = 1;
+        this.breadth = 1;
+    }
+
+    public RectangleOverload(double side) {
+        this.length = side;
+        this.breadth = side;
+    }
+
+    public RectangleOverload(double length, double breadth) {
+        this.length = length;
+        this.breadth = breadth;
+    }
+
+    public void displayArea() {
+        System.out.println("Area: " + (this.length * this.breadth));
+    }
+}
+
+public class RectangleConstructorDemo {
+    public static void main(String[] args) {
+        RectangleOverload r1 = new RectangleOverload();
+        RectangleOverload r2 = new RectangleOverload(5.0);
+        RectangleOverload r3 = new RectangleOverload(7.0, 3.0);
+
+        r1.displayArea();
+        r2.displayArea();
+        r3.displayArea();
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>12. Stack Operations</h2>
+        <h3>Problem Statement:</h3>
+        <p>Write a program to implement stack operations (PUSH, POP, DISPLAY)</p>
+        <h3>Code:</h3>
+<pre><code>
+class Stack {
+    private int[] stackArray;
+    private int top;
+    private int maxSize;
+
+    public Stack(int size) {
+        this.maxSize = size;
+        this.stackArray = new int[maxSize];
+        this.top = -1; // -1 means empty
+    }
+
+    public void push(int value) {
+        if (top == maxSize - 1) {
+            System.out.println("Stack Overflow!");
+        } else {
+            top++;
+            stackArray[top] = value;
+            System.out.println(value + " pushed.");
+        }
+    }
+
+    public void pop() {
+        if (top == -1) {
+            System.out.println("Stack Underflow!");
+        } else {
+            int value = stackArray[top];
+            top--;
+            System.out.println(value + " popped.");
+        }
+    }
+
+    public void display() {
+        if (top == -1) {
+            System.out.println("Stack is empty.");
+        } else {
+            System.out.print("Stack (top to bottom): ");
+            for (int i = top; i &gt;= 0; i--) {
+                System.out.print(stackArray[i] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+public class StackDemo {
+    public static void main(String[] args) {
+        Stack myStack = new Stack(5);
+        myStack.push(10);
+        myStack.push(20);
+        myStack.display();
+        myStack.pop();
+        myStack.display();
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>13. Matrix Transpose</h2>
+        <h3>Problem Statement:</h3>
+        <p>Write a program to find transpose of matrix</p>
+        <h3>Code:</h3>
+<pre><code>
+public class MatrixTranspose {
+    public static void main(String[] args) {
+        int[][] original = { {1, 2, 3}, {4, 5, 6} };
+        int rows = 2;
+        int cols = 3;
+
+        int[][] transpose = new int[cols][rows];
+
+        for (int i = 0; i &lt; rows; i++) {
+            for (int j = 0; j &lt; cols; j++) {
+                transpose[j][i] = original[i][j];
+            }
+        }
+
+        System.out.println("Transposed Matrix:");
+        for (int i = 0; i &lt; cols; i++) {
+            for (int j = 0; j &lt; rows; j++) {
+                System.out.print(transpose[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>14. Employee Filtering (Multilevel Inheritance)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Display details of employees with > 10 years experience AND salary > 50000. Use multilevel inheritance and array of objects.</p>
+        <h3>Code:</h3>
+<pre><code>
+class EmployeeBase {
+    String name;
+    public EmployeeBase(String name) { this.name = name; }
+}
+
+class EmployeeSalary extends EmployeeBase {
+    double salary;
+    public EmployeeSalary(String name, double salary) {
+        super(name);
+        this.salary = salary;
+    }
+}
+
+class EmployeeExperience extends EmployeeSalary {
+    int yearsExperience;
+    public EmployeeExperience(String name, double salary, int exp) {
+        super(name, salary);
+        this.yearsExperience = exp;
+    }
+    
+    public void displayDetails() {
+        System.out.println("Name: " + name + ", Salary: " + salary + ", Exp: " + yearsExperience);
+    }
+}
+
+public class EmployeeFilterDemo {
+    public static void main(String[] args) {
+        EmployeeExperience[] employees = new EmployeeExperience[3];
+        employees[0] = new EmployeeExperience("Alice", 60000, 12);
+        employees[1] = new EmployeeExperience("Bob", 40000, 15);
+        employees[2] = new EmployeeExperience("Charlie", 70000, 8);
+
+        System.out.println("Filtered Employees:");
+        for (EmployeeExperience emp : employees) {
+            if (emp.yearsExperience > 10 && emp.salary > 50000) {
+                emp.displayDetails();
+            }
+        }
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>15. Volume of Sphere (Multilevel Inheritance)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Calculate volume of sphere using multilevel inheritance. Base: `acceptRadius()`. Derived 1: `findArea()`. Derived 2: `calculateAndDisplayVolume()`.</p>
+        <h3>Code:</h3>
+<pre><code>
+import java.util.Scanner;
+
+class Radius {
+    double radius;
+    public void acceptRadius() {
+        System.out.print("Enter radius: ");
+        Scanner scanner = new Scanner(System.in);
+        this.radius = scanner.nextDouble();
+    }
+}
+
+class CircleArea extends Radius {
+    public double findArea() {
+        return Math.PI * this.radius * this.radius;
+    }
+}
+
+class SphereVolume extends CircleArea {
+    public void calculateAndDisplayVolume() {
+        double volume = (4.0 / 3.0) * Math.PI * Math.pow(this.radius, 3);
+        System.out.printf("Area: %.2f\n", findArea());
+        System.out.printf("Volume: %.2f\n", volume);
+    }
+}
+
+public class SphereDemo {
+    public static void main(String[] args) {
+        SphereVolume sphere = new SphereVolume();
+        sphere.acceptRadius();
+        sphere.calculateAndDisplayVolume();
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>16. Number Operations (Abstract Class)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Calculate square, square root, and cube of a number using an abstract class and abstract method.</p>
+        <h3>Code:</h3>
+<pre><code>
+import java.lang.Math;
+
+abstract class NumberOperation {
+    protected double number;
+    public NumberOperation(double num) { this.number = num; }
+    abstract void calculate();
+}
+
+class Square extends NumberOperation {
+    public Square(double num) { super(num); }
+    @Override
+    void calculate() {
+        System.out.println("Square of " + number + " is: " + (number * number));
+    }
+}
+
+class SquareRoot extends NumberOperation {
+    public SquareRoot(double num) { super(num); }
+    @Override
+    void calculate() {
+        System.out.println("Square root of " + number + " is: " + Math.sqrt(number));
+    }
+}
+
+class Cube extends NumberOperation {
+    public Cube(double num) { super(num); }
+    @Override
+    void calculate() {
+        System.out.println("Cube of " + number + " is: " + (number * number * number));
+    }
+}
+
+public class AbstractDemo {
+    public static void main(String[] args) {
+        NumberOperation op1 = new Square(5);
+        NumberOperation op2 = new SquareRoot(25);
+        NumberOperation op3 = new Cube(3);
+
+        op1.calculate();
+        op2.calculate();
+        op3.calculate();
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>17. Weather Service (Interface & Anonymous Class)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Demonstrate an interface `WeatherService` with a method `getWeatherInfo()`. Implement it using an anonymous class in `main`.</p>
+        <h3>Code:</h3>
+<pre><code>
+interface WeatherService {
+    String getWeatherInfo(String location);
+}
+
+public class WeatherDemo {
+    public static void main(String[] args) {
+        String location = "Mumbai";
+
+        // Anonymous class implementation
+        WeatherService myWeatherService = new WeatherService() {
+            @Override
+            public String getWeatherInfo(String loc) {
+                return "Weather in " + loc + ": Sunny, 25°C."; 
+            }
+        };
+
+        String weatherInfo = myWeatherService.getWeatherInfo(location);
+        System.out.println(weatherInfo);
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>18. Personal Portfolio Webpage (Combined)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Create a static portfolio with About, Skills, Projects, Contact sections. Use a navbar and CSS cards for projects.</p>
+        <h3>Code:</h3>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;My Portfolio&lt;/title&gt;
+    &lt;style&gt;
+        /* --- CSS --- */
+        body { font-family: Arial, sans-serif; scroll-behavior: smooth; }
+        section {
+            padding: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+        nav {
+            background: #333;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+        }
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+        }
+        .project-card {
+            border: 1px solid #999;
+            padding: 10px;
+            margin-top: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;!-- --- HTML --- --&gt;
+    &lt;nav&gt;
+        &lt;a href="#about"&gt;About&lt;/a&gt;
+        &lt;a href="#skills"&gt;Skills&lt;/a&gt;
+        &lt;a href="#projects"&gt;Projects&lt;/a&gt;
+        &lt;a href="#contact"&gt;Contact&lt;/a&gt;
+    &lt;/nav&gt;
+
+    &lt;section id="about"&gt;
+        &lt;h2&gt;About Me&lt;/h2&gt;
+        &lt;p&gt;Hello! I am a student.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id="skills"&gt;
+        &lt;h2&gt;Skills&lt;/h2&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Java&lt;/li&gt;
+            &lt;li&gt;HTML&lt;/li&gt;
+            &lt;li&gt;CSS&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section id="projects"&gt;
+        &lt;h2&gt;Projects&lt;/h2&gt;
+        &lt;div class="project-card"&gt;
+            &lt;h3&gt;Project 1&lt;/h3&gt;
+            &lt;p&gt;My first project.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="project-card"&gt;
+            &lt;h3&gt;Project 2&lt;/h3&gt;
+            &lt;p&gt;My second project.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section id="contact"&gt;
+        &lt;h2&gt;Contact&lt;/h2&gt;
+        &lt;p&gt;My email is example@email.com&lt;/p&gt;
+    &lt;/section&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>19. Simple Blog Homepage (Combined)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Design a blog homepage with post titles/summaries, a sidebar, a footer, and make it responsive.</p>
+        <h3>Code:</h3>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;My Blog&lt;/title&gt;
+    &lt;style&gt;
+        /* --- CSS --- */
+        body { font-family: Arial, sans-serif; margin: 0; }
+        header { background: #333; color: white; padding: 10px; text-align: center; }
+        .container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+        main {
+            flex: 3; /* Main content takes more space */
+        }
+        aside {
+            flex: 1; /* Sidebar takes less space */
+            background: #f4f4f4;
+            padding: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            color: white;
+            margin-top: 20px;
+        }
+        /* Responsive part */
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;!-- --- HTML --- --&gt;
+    &lt;header&gt;&lt;h1&gt;My Blog&lt;/h1&gt;&lt;/header&gt;
+
+    &lt;div class="container"&gt;
+        &lt;main&gt;
+            &lt;article&gt;
+                &lt;h2&gt;Post Title 1&lt;/h2&gt;
+                &lt;p&gt;This is a short summary...&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article&gt;
+                &lt;h2&gt;Post Title 2&lt;/h2&gt;
+                &lt;p&gt;This is another short summary...&lt;/p&gt;
+            &lt;/article&gt;
+        &lt;/main&gt;
+        
+        &lt;aside&gt;
+            &lt;h3&gt;Recent Posts&lt;/h3&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Post Title 1&lt;/li&gt;
+                &lt;li&gt;Post Title 2&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/aside&gt;
+    &lt;/div&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2025 My Blog&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>20. Product Landing Page (Combined)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Create a landing page with a hero section, features, pricing, testimonials, and a call-to-action (CTA) button.</p>
+        <h3>Code:</h3>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;Product Page&lt;/title&gt;
+    &lt;style&gt;
+        /* --- CSS --- */
+        body { font-family: Arial, sans-serif; margin: 0; }
+        #hero {
+            background: #f0f0f0;
+            text-align: center;
+            padding: 40px 0;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        .cta-button {
+            background: #007BFF;
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;!-- --- HTML --- --&gt;
+    &lt;section id="hero"&gt;
+        &lt;h1&gt;Amazing Product&lt;/h1&gt;
+        &lt;p&gt;It will change your life!&lt;/p&gt;
+        &lt;button class="cta-button"&gt;Buy Now!&lt;/button&gt;
+    &lt;/section&gt;
+
+    &lt;section id="features"&gt;
+        &lt;h2&gt;Features&lt;/h2&gt;
+        &lt;ul&gt;
+            &lt;li&gt;It's fast&lt;/li&gt;
+            &lt;li&gt;It's easy&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section id="pricing"&gt;
+        &lt;h2&gt;Pricing&lt;/h2&gt;
+        &lt;p&gt;$9.99 / month&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id="testimonials"&gt;
+        &lt;h2&gt;Testimonials&lt;/h2&gt;
+        &lt;p&gt;"I love this product!" - Happy Customer&lt;/p&gt;
+    &lt;/section&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>21. Resume (Basic HTML)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Write a program to display your resume (use basic HTML tags)</p>
+        <h3>Code:</h3>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;My Resume&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;John Doe&lt;/h1&gt;
+    &lt;p&gt;Student | example@email.com&lt;/p&gt;
+    &lt;hr&gt;
+    
+    &lt;h2&gt;Education&lt;/h2&gt;
+    &lt;p&gt;&lt;b&gt;XYZ University&lt;/b&gt; - B.Tech (2023-2027)&lt;/p&gt;
+
+    &lt;h2&gt;Skills&lt;/h2&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Java&lt;/li&gt;
+        &lt;li&gt;HTML&lt;/li&gt;
+        &lt;li&gt;CSS&lt;/li&gt;
+        &lt;li&gt;MySQL&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2&gt;Projects&lt;/h2&gt;
+    &lt;h3&gt;Project Title&lt;/h3&gt;
+    &lt;p&gt;Description of the project.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>22. Class Timetable (HTML Table)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Write a program to display your class time table (use table in html)</p>
+        <h3>Code:</h3>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;Class Timetable&lt;/title&gt;
+    &lt;style&gt;
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td { padding: 8px; }
+        th { background: #f0f0f0; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Class Timetable&lt;/h1&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Time&lt;/th&gt;
+                &lt;th&gt;Monday&lt;/th&gt;
+                &lt;th&gt;Tuesday&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;9:00 - 10:00&lt;/td&gt;
+                &lt;td&gt;Maths&lt;/td&gt;
+                &lt;td&gt;Java&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;10:00 - 11:00&lt;/td&gt;
+                &lt;td&gt;Java&lt;/td&gt;
+                &lt;td&gt;DBMS&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;11:00 - 12:00&lt;/td&gt;
+                &lt;td&gt;DBMS&lt;/td&gt;
+                &lt;td&gt;Maths&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>23. Static Homepage (HTML & CSS)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Design a static homepage of a website (use HTML and CSS)</p>
+        <h3>Code:</h3>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;My Homepage&lt;/title&gt;
+    &lt;style&gt;
+        /* --- CSS --- */
+        body { font-family: Arial, sans-serif; margin: 0; }
+        header {
+            background: #007BFF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header a { color: white; margin: 0 10px; }
+        main {
+            padding: 20px;
+        }
+        footer {
+            background: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;!-- --- HTML --- --&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;a href="#"&gt;Home&lt;/a&gt;
+            &lt;a href="#"&gt;About&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &lt;h2&gt;About Us&lt;/h2&gt;
+        &lt;p&gt;This is the main content of the homepage.&lt;/p&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2025 MyWebsite&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>24. To-Do List (Combined)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Create a static website for a simple To-Do List application where users can: Add tasks, View tasks, Delete tasks. This website should use HTML, CSS, and JavaScript only (no backend).</p>
+        <h3>Code:</h3>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;To-Do List&lt;/title&gt;
+    &lt;style&gt;
+        /* --- CSS --- */
+        body { font-family: Arial, sans-serif; background: #f4f4f4; }
+        .container {
+            width: 400px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+        li:hover { background: #f0f0f0; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;!-- --- HTML --- --&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;My To-Do List&lt;/h2&gt;
+        &lt;input type="text" id="taskInput" placeholder="New task..."&gt;
+        &lt;button onclick="addTask()"&gt;Add&lt;/button&gt;
+        &lt;ul id="taskList"&gt;&lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;!-- --- JavaScript --- --&gt;
+    &lt;script&gt;
+        function addTask() {
+            let inputField = document.getElementById("taskInput");
+            let taskText = inputField.value.trim();
+
+            if (taskText === "") return;
+
+            let li = document.createElement("li");
+            li.textContent = taskText + " (click to delete)";
+
+            // (EASY DELETE) Click the task to remove it
+            li.onclick = function() {
+                this.remove();
+            };
+
+            document.getElementById("taskList").appendChild(li);
+            inputField.value = "";
+        }
+    &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>25. Online Calculator (Combined)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Online Calculator - Create a static calculator where users can perform basic operations (add, subtract, multiply, divide).</p>
+        <h3>Code:</h3>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;Calculator&lt;/title&gt;
+    &lt;style&gt;
+        /* --- CSS --- */
+        .calculator {
+            width: 250px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        #display {
+            width: 95%;
+            font-size: 24px;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px;
+            cursor: pointer;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;!-- --- HTML --- --&gt;
+    &lt;div class="calculator"&gt;
+        &lt;input type="text" id="display" disabled&gt;
+        &lt;div class="buttons"&gt;
+            &lt;button onclick="appendToDisplay('7')"&gt;7&lt;/button&gt;
+            &lt;button onclick="appendToDisplay('8')"&gt;8&lt;/button&gt;
+            &lt;button onclick="appendToDisplay('9')"&gt;9&lt;/button&gt;
+            &lt;button onclick="appendToDisplay('+')"&gt;+&lt;/button&gt;
+            &lt;button onclick="appendToDisplay('4')"&gt;4&lt;/button&gt;
+            &lt;button onclick="appendToDisplay('5')"&gt;5&lt;/button&gt;
+            &lt;button onclick="appendToDisplay('6')"&gt;6&lt;/button&gt;
+            &lt;button onclick="appendToDisplay('-')"&gt;-&lt;/button&gt;
+            &lt;button onclick="appendToDisplay('1')"&gt;1&lt;/button&gt;
+            &lt;button onclick="appendToDisplay('2')"&gt;2&lt;/button&gt;
+            &lt;button onclick="appendToDisplay('3')"&gt;3&lt;/button&gt;
+            &lt;button onclick="appendToDisplay('*')"&gt;*&lt;/button&gt;
+            &lt;button onclick="clearDisplay()"&gt;C&lt;/button&gt;
+            &lt;button onclick="appendToDisplay('0')"&gt;0&lt;/button&gt;
+            &lt;button onclick="calculate()"&gt;=&lt;/button&gt;
+            &lt;button onclick="appendToDisplay('/')"&gt;/&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- --- JavaScript --- --&gt;
+    &lt;script&gt;
+        let display = document.getElementById("display");
+
+        function appendToDisplay(value) {
+            display.value += value;
+        }
+
+        function clearDisplay() {
+            display.value = "";
+        }
+
+        function calculate() {
+            try {
+                display.value = eval(display.value);
+            } catch (error) {
+                display.value = "Error";
+            }
+        }
+    &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>26. Weather Information Page (Combined)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Weather Information Page- Create a static weather page where users enter a city name and get dummy weather data.</p>
+        <h3>Code:</h3>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;Dummy Weather&lt;/title&gt;
+    &lt;style&gt;
+        /* --- CSS --- */
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .container {
+            padding: 20px;
+            background: #f0f7fa;
+            border-radius: 5px;
+        }
+        #weather-info { margin-top: 20px; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;!-- --- HTML --- --&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;Weather Finder&lt;/h2&gt;
+        &lt;input type="text" id="cityInput" placeholder="Enter city name..."&gt;
+        &lt;button onclick="getWeather()"&gt;Search&lt;/button&gt;
+        &lt;div id="weather-info"&gt;
+            &lt;p&gt;Enter a city to see the weather.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- --- JavaScript --- --&gt;
+    &lt;script&gt;
+        function getWeather() {
+            let cityName = document.getElementById("cityInput").value;
+            let weatherInfoDiv = document.getElementById("weather-info");
+
+            if (cityName.trim() === "") {
+                weatherInfoDiv.innerHTML = "&lt;p style='color: red;'&gt;Please enter a city.&lt;/p"&gt;";
+                return;
+            }
+
+            let dummyHTML = `
+                &lt;h3&gt;Weather for ${cityName}&lt;/h3&gt;
+                &lt;p&gt;&lt;strong&gt;Temperature:&lt;/strong&gt; 25°C (Dummy)&lt;/p&gt;
+                &lt;p&gt;&lt;strong&gt;Condition:&lt;/strong&gt; Sunny (Dummy)&lt;/p&gt;
+            `;
+            weatherInfoDiv.innerHTML = dummyHTML;
+        }
+    &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>27. Sum of 3 and 5 Multiples (Combined)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Write a JavaScript program to display sum of 3 and 5 multiples under 1000(use function).</p>
+        <h3>Code:</h3>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;body&gt;
+    &lt;h2&gt;Sum of 3 and 5 multiples under 1000&lt;/h2&gt;
+    &lt;p id="result"&gt;Calculating...&lt;/p&gt;
+    
+    &lt;script&gt;
+        function sumMultiples() {
+            let sum = 0;
+            for (let i = 1; i &lt; 1000; i++) {
+                if (i % 3 === 0 || i % 5 === 0) {
+                    sum += i;
+                }
+            }
+            return sum;
+        }
+        let total = sumMultiples();
+        document.getElementById("result").textContent = "Result: " + total;
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>28. Product of Digits (Combined)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Write a JavaScript program to display product of digits of a number(use function).</p>
+        <h3>Code:</h3>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;body&gt;
+    &lt;h2&gt;Product of digits for 12345&lt;/h2&gt;
+    &lt;p id="result"&gt;Calculating...&lt;/p&gt;
+    
+    &lt;script&gt;
+        function getProductOfDigits(number) {
+            let product = 1;
+            let numString = String(number);
+            for (let i = 0; i &lt; numString.length; i++) {
+                let digit = parseInt(numString[i]);
+                product *= digit;
+            }
+            return product;
+        }
+        let inputNum = 12345;
+        let product = getProductOfDigits(inputNum);
+        document.getElementById("result").textContent = `Product for ${inputNum} is: ${product}`;
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <div class="problem">
+        <h2>29. Form Validation (Combined)</h2>
+        <h3>Problem Statement:</h3>
+        <p>Write a JavaScript use function Program to validate Form</p>
+        <h3>Code:</h3>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;Form Validation&lt;/title&gt;
+    &lt;style&gt;
+        /* --- CSS --- */
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        form { padding: 20px; background: #f4f4f4; }
+        div { margin-bottom: 15px; }
+        .error { color: red; font-size: 0.9em; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;!-- --- HTML --- --&gt;
+    &lt;form id="myForm" onsubmit="return validateForm()"&gt;
+        &lt;h2&gt;Login Form&lt;/h2&gt;
+        &lt;div&gt;
+            Username: &lt;input type="text" id="username"&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            Password (min 6): &lt;input type="password" id="password"&gt;
+        &lt;/div&gt;
+        &lt;p id="error-message" class="error"&gt;&lt;/p&gt;
+        &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;!-- --- JavaScript --- --&gt;
+    &lt;script&gt;
+        function validateForm() {
+            let username = document.getElementById("username").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let errorMsg = document.getElementById("error-message");
+
+            if (username === "") {
+                errorMsg.textContent = "Username is required!";
+                return false; // Stop submission
+            }
+            if (password.length &lt; 6) {
+                errorMsg.textContent = "Password must be at least 6 characters.";
+                return false; // Stop submission
+            }
+
+            errorMsg.textContent = "";
+            alert("Form is valid! Submitting...");
+            return true; // Allow submission
+        }
+    &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+</body>
+</html>
