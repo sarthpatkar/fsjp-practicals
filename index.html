@@ -1023,62 +1023,57 @@ public class WeatherDemo {
 &lt;head&gt;
     &lt;title&gt;My Blog&lt;/title&gt;
     &lt;style&gt;
-        /* --- CSS --- */
-        body { font-family: Arial, sans-serif; margin: 0; }
-        header { background: #333; color: white; padding: 10px; text-align: center; }
-        .container {
-            display: flex;
-            gap: 20px;
-            padding: 20px;
-        }
-        main {
-            flex: 3; /* Main content takes more space */
-        }
-        aside {
-            flex: 1; /* Sidebar takes less space */
-            background: #f4f4f4;
-            padding: 10px;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background: #333;
-            color: white;
-            margin-top: 20px;
-        }
-        /* Responsive part */
-        @media (max-width: 600px) {
-            .container {
-                flex-direction: column;
-            }
+        body { font-family: Arial, sans-serif; margin: 0; background: lightgray; }
+        header, footer { background: black; color: white; text-align: center; padding: 10px; }
+        section { padding: 20px; text-align: center; border-bottom: 1px solid #ccc; background: white; margin: 10px; border-radius: 5px; }
+        article { background: lightblue; padding: 10px; margin: 10px auto; border-radius: 5px; width: 80%; }
+        aside { background: lightyellow; padding: 10px; margin: 10px auto; border-radius: 5px; width: 80%; }
+        @media (min-width: 700px) {
+            .container { display: flex; justify-content: center; align-items: flex-start; }
+            main { width: 70%; }
+            aside { width: 25%; }
         }
     &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
 
-    &lt;!-- --- HTML --- --&gt;
-    &lt;header&gt;&lt;h1&gt;My Blog&lt;/h1&gt;&lt;/header&gt;
+    &lt;header&gt;
+        &lt;h1&gt;My Blog&lt;/h1&gt;
+    &lt;/header&gt;
 
-    &lt;div class="container"&gt;
-        &lt;main&gt;
-            &lt;article&gt;
-                &lt;h2&gt;Post Title 1&lt;/h2&gt;
-                &lt;p&gt;This is a short summary...&lt;/p&gt;
-            &lt;/article&gt;
-            &lt;article&gt;
-                &lt;h2&gt;Post Title 2&lt;/h2&gt;
-                &lt;p&gt;This is another short summary...&lt;/p&gt;
-            &lt;/article&gt;
-        &lt;/main&gt;
-        
-        &lt;aside&gt;
-            &lt;h3&gt;Recent Posts&lt;/h3&gt;
-            &lt;ul&gt;
-                &lt;li&gt;Post Title 1&lt;/li&gt;
-                &lt;li&gt;Post Title 2&lt;/li&gt;
-            &lt;/ul&gt;
-        &lt;/aside&gt;
-    &lt;/div&gt;
+    &lt;section id="intro"&gt;
+        &lt;h2&gt;Welcome&lt;/h2&gt;
+        &lt;p&gt;This is my blog where I write about nature, technology, and daily life stories.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id="posts"&gt;
+        &lt;h2&gt;Blog Posts&lt;/h2&gt;
+        &lt;div class="container"&gt;
+            &lt;main&gt;
+                &lt;article&gt;
+                    &lt;h3&gt;Post Title 1&lt;/h3&gt;
+                    &lt;p&gt;This post is about how animals adapt to cities and live alongside humans.&lt;/p&gt;
+                &lt;/article&gt;
+                &lt;article&gt;
+                    &lt;h3&gt;Post Title 2&lt;/h3&gt;
+                    &lt;p&gt;This post explains how technology changes our environment and lifestyle.&lt;/p&gt;
+                &lt;/article&gt;
+            &lt;/main&gt;
+            &lt;aside&gt;
+                &lt;h3&gt;Recent Posts&lt;/h3&gt;
+                &lt;ul style="text-align:left;"&gt;
+                    &lt;li&gt;Post 1&lt;/li&gt;
+                    &lt;li&gt;Post 2&lt;/li&gt;
+                    &lt;li&gt;Post 3&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/aside&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section id="contact"&gt;
+        &lt;h2&gt;Contact&lt;/h2&gt;
+        &lt;p&gt;Email: example@email.com&lt;/p&gt;
+    &lt;/section&gt;
 
     &lt;footer&gt;
         &lt;p&gt;&amp;copy; 2025 My Blog&lt;/p&gt;
@@ -1633,6 +1628,7 @@ public class WeatherDemo {
 </body>
 
 </html>
+
 
 
 
