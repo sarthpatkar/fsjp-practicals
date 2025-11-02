@@ -611,6 +611,110 @@ public class StackDemo {
         myStack.display();
     }
 }
+
+
+    if needed use menu driven 
+
+
+import java.util.Scanner;
+
+class stack{
+    private int[] stackarray;
+    private int maxsize;
+    private int top;
+
+
+public stack(int size){
+    this.maxsize=size;
+    this.stackarray=new int[maxsize];
+    this.top=-1;
+}
+
+public void push(int value){
+    if(top == maxsize-1){
+        System.out.println("stacl overflow");
+    }
+    else{
+        top++;
+        stackarray[top]=value;
+        System.out.println(value+ " pushed successfully");
+    }
+}
+
+public void pop(){
+    if(top==-1){
+        System.out.println("stack is empty");
+    }
+    else{
+        int value=stackarray[top];
+        top--;
+        System.out.println(value+" popped successfully");
+    }
+}
+
+public void display(){
+    if (top==-1){
+        System.out.println("stack is empty");
+    }
+    else{
+        System.out.println("stack(top to bottom): ");
+        int i;
+        for(i=top ;i>=0; i--){
+            System.out.println(stackarray[i]+" ");
+        }
+        System.out.println();
+    }
+}
+}
+
+public class StackDemo{
+    public static void main(String[] args){
+        Scanner scanner=new Scanner(System.in);
+
+        System.out.print("enter size of stack: ");
+        int size=scanner.nextInt();
+
+        stack newstack= new stack(size);
+
+        int choice;
+
+        do {
+            
+
+            System.out.println("1. push");
+            System.out.println("2. pop");
+            System.out.println("3. display");
+            System.out.println("4. exit");
+
+            System.out.println("enter your choice: ");
+            choice = scanner.nextInt();
+
+            switch(choice){
+                case 1:
+                System.out.println("enter value to push: ");
+                int value=scanner.nextInt();
+                newstack.push(value);
+                break;
+
+                case 2:
+                newstack.pop();
+                break;
+
+                case 3:
+                newstack.display();
+                break;
+
+                case 4:
+                System.out.println("exiting....: ");
+                break;
+
+                
+            }
+        } while (choice !=4);
+
+        scanner.close();
+    }
+}
 </code></pre>
     </div>
 
@@ -1521,3 +1625,4 @@ public class WeatherDemo {
 </body>
 
 </html>
+
