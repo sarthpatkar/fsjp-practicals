@@ -927,80 +927,87 @@ public class WeatherDemo {
         <p>Create a static portfolio with About, Skills, Projects, Contact sections. Use a navbar and CSS cards for projects.</p>
         <h3>Code:</h3>
 <pre><code>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;title&gt;My Portfolio&lt;/title&gt;
-    &lt;style&gt;
+<html>
+<head>
+    <title>My Portfolio</title>
+    <style>
         /* --- CSS --- */
-        body { font-family: Arial, sans-serif; scroll-behavior: smooth; }
-        section {
-            padding: 20px;
-            border-bottom: 1px solid #ccc;
-        }
+        body { font-family: Arial, sans-serif; }
         nav {
-            background: #333;
+            background: red;
             padding: 10px;
-            position: sticky;
-            top: 0;
+            text-align: center;
         }
         nav a {
             color: white;
             margin: 10px;
             text-decoration: none;
+            
+        }
+        section {
+            padding: 20px;
+            border-bottom: 1px solid gray;
+            text-align: center;
         }
         .project-card {
-            border: 1px solid #999;
+            border: 1px solid gray;
             padding: 10px;
             margin-top: 10px;
-            background: #f9f9f9;
-            border-radius: 5px;
+            background: white;
         }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
 
-    &lt;!-- --- HTML --- --&gt;
-    &lt;nav&gt;
-        &lt;a href="#about"&gt;About&lt;/a&gt;
-        &lt;a href="#skills"&gt;Skills&lt;/a&gt;
-        &lt;a href="#projects"&gt;Projects&lt;/a&gt;
-        &lt;a href="#contact"&gt;Contact&lt;/a&gt;
-    &lt;/nav&gt;
+    <!-- --- HTML --- -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-    &lt;section id="about"&gt;
-        &lt;h2&gt;About Me&lt;/h2&gt;
-        &lt;p&gt;Hello! I am a student.&lt;/p&gt;
-    &lt;/section&gt;
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I am a student.</p>
+    </section>
 
-    &lt;section id="skills"&gt;
-        &lt;h2&gt;Skills&lt;/h2&gt;
-        &lt;ul&gt;
-            &lt;li&gt;Java&lt;/li&gt;
-            &lt;li&gt;HTML&lt;/li&gt;
-            &lt;li&gt;CSS&lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/section&gt;
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>Java</li>
+            <li>HTML</li>
+            <li>CSS</li>
+        </ul>
+    </section>
 
-    &lt;section id="projects"&gt;
-        &lt;h2&gt;Projects&lt;/h2&gt;
-        &lt;div class="project-card"&gt;
-            &lt;h3&gt;Project 1&lt;/h3&gt;
-            &lt;p&gt;My first project.&lt;/p&gt;
-        &lt;/div&gt;
-        &lt;div class="project-card"&gt;
-            &lt;h3&gt;Project 2&lt;/h3&gt;
-            &lt;p&gt;My second project.&lt;/p&gt;
-        &lt;/div&gt;
-    &lt;/section&gt;
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-card">
+            <h3>Project 1</h3>
+            <p>My first project.</p>
+        </div>
+        <div class="project-card">
+            <h3>Project 2</h3>
+            <p>My second project.</p>
+        </div>
+    </section>
 
-    &lt;section id="contact"&gt;
-        &lt;h2&gt;Contact&lt;/h2&gt;
-        &lt;p&gt;My email is example@email.com&lt;/p&gt;
-    &lt;/section&gt;
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>My email is example@email.com</p>
+    </section>
 
-&lt;/body&gt;
-&lt;/html&gt;
+</body>
+</html>
 </code></pre>
     </div>
 
@@ -1625,4 +1632,5 @@ public class WeatherDemo {
 </body>
 
 </html>
+
 
